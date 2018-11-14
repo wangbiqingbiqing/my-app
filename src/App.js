@@ -1,20 +1,24 @@
+import Grid from "@material-ui/core/Grid/Grid";
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import PrimarySearchAppBar from './component/Welcome'
-
+import {Switch, Route} from "react-router";
+import Album from "./component/Album";
+import PrimarySearchAppBar from './component/Toolbar'
 import './App.css';
-import Typography from "@material-ui/core/Typography/Typography";
+
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <header ></header>
-                <body>
+            <Grid container className="App">
+              <Grid item xs={12}>
                 <PrimarySearchAppBar/>
-
-                </body>
-            </div>
+              </Grid>
+              <Grid item xs={12}>
+                <Switch>
+                  <Route path='/album' component={Album}/>
+                </Switch>
+              </Grid>
+            </Grid>
         );
     }
 }
